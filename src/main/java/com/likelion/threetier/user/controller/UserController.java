@@ -4,13 +4,13 @@ import com.likelion.threetier.user.model.User;
 import com.likelion.threetier.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/users")
 public class UserController {
 
@@ -18,10 +18,11 @@ public class UserController {
     UserService userService;
 
     @RequestMapping("")
-    public List<User> homePage()
+    public String homePage(Model htmlPage)
     {
-        List<User> users=(List<User>) userService.getUsers();
-        return users;
+        List<User> users = (List<User>) userService.getUsers();
+        htmlPage.addAttribute("users", users);
+        return "index";
 
     }
 
