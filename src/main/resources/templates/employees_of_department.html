@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Week2-1</title>
+</head>
+<body>
+<div align="center">
+    <h1>Employees</h1>
+    <br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>BirthDate</td>
+            <td>gender</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employees}">
+            <td th:text="${employee.employeeId}">id</td>
+            <td th:text="${employee.name}">name</td>
+            <td th:text="${employee.birthDate}">birthDate</td>
+            <td>
+                <a th:href="@{'/employee/' + ${employee.employeeId}}">Show</a>
+            </td>
+            <td>
+                <a th:href="@{'/employee/edit/'+ ${employee.employeeId}}">Edit</a>
+                &nbsp;
+                <a th:href="@{'/employee/delete/'+${employee.employeeId}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

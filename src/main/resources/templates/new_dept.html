@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Department</title>
+</head>
+<body>
+<div align="center">
+  <h1>Adding new Department</h1>
+  <form th:action="@{/department/create}" th:object="${department}" method="POST">
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" th:field="*{dept_name}"/> </td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td><input type="text" th:field="*{description}"/> </td>
+      </tr>
+      <tr>
+        <td colspan="2"><button type="submit">Save</button></td>
+      </tr>
+    </table>
+
+  </form>
+</div>
+</body>
+</html>

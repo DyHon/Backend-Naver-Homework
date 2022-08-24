@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Week2-1</title>
+</head>
+<body>
+<div align="center">
+    <h1>Departments latest</h1>
+    <br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Employees</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dept : ${depts}">
+            <td th:text="${dept.departmentId}">id</td>
+            <td th:text="${dept.dept_name}">name</td>
+            <td th:text="${dept.description}">description</td>
+            <td>
+                <a th:href="@{${dept.departmentId} + '/employees'}">Show</a>
+                <a th:href="@{${dept.departmentId} + '/employee/new'}">Add</a>
+            </td>
+            <td>
+                <a th:href="@{'/department/edit/'+${dept.departmentId}}">Edit</a>
+                &nbsp;
+                <a th:href="@{'/department/delete/'+${dept.departmentId}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
