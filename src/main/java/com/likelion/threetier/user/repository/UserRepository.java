@@ -25,4 +25,10 @@ public class UserRepository {
         return users;
     }
 
+    public User findById(int id) {
+        if (users.get(id - 1) == null) {
+            return null;
+        }
+        return users.get(id-1);
+    }
 }

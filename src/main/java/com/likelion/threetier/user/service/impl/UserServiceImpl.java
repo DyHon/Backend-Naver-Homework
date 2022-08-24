@@ -12,11 +12,16 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    UserRepository uRepo;
+    UserRepository userRepository;
 
     @Override
     public List<User> getUsers() {
-        return(List<User>) uRepo.findAll();
+        return(List<User>) userRepository.findAll();
     }
 
+    @Override
+    public User getUserById(int id) {
+        System.out.println(userRepository.findById(id));
+        return(User) userRepository.findById(id);
+    }
 }
