@@ -53,7 +53,6 @@ public class DepartmentController {
     public String showEmployees(@PathVariable(value = "departmentId") Long deptId, Model model) {
         Optional<Department> dept = deptServiceImpl.getById(deptId);
         List<Employee> employees = dept.get().getEmployees();
-        System.out.println(employees);
         model.addAttribute("department", dept);
         return "employees_of_department";
     }
@@ -63,6 +62,7 @@ public class DepartmentController {
         Employee emp = new Employee();
         Optional <Department> departmentOptional = deptServiceImpl.getById(deptId);
         Department dept = departmentOptional.get();
+        System.out.println(dept);
         emp.setDepartmentId(dept);
         model.addAttribute("employee", emp);
         return "new_employee";
